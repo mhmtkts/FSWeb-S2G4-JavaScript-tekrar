@@ -41,7 +41,7 @@ function KareninAlani(kenaruzunlugu) {
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(KareninAlani(10))
 /* GÖREV 1:  
 - CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. CemberinCevresi fonksiyonu parametre olarak sadece çemberin yarıçapını alacaktır. 
@@ -50,12 +50,12 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return yaricap * pi * 2
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinCevresi(5))
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. Argüman olarak çemberin yarıçapını BİRİNCİ parametre olacak alacaktır. 
@@ -64,12 +64,12 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap,pi) {
+  return (Math.pow(yaricap,2) * pi);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinAlani(15,pi))
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
 		3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
@@ -88,6 +88,7 @@ function CemberinAlani(/* kodlar buraya */) {
 */
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
+  console.log(sayilar.length)
 
 let ucetambolunenler,
   enkucuk,
@@ -99,27 +100,69 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+for(let i = 0; i < sayilar.length; i++) {
+  if(sayilar[i] > enbuyuk){
+    enbuyuk = sayilar[i]
+  }
+}
+
+for(let i = 0; i < sayilar.length; i++) {
+  if(sayilar[i] < enkucuk){
+    enkucuk = sayilar[i]
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = [];
+
+sayilar.forEach((sayi) => {
+  if(sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, yeni) => toplam + yeni, 0)
 
 // 3d çözümü
 
-/* kodlar buraya */
+function besyuzdenkucukmu(sayi) {
+  if (sayi < 500) {
+    return true
+  } else {
+    return false
+  }
+}
+besyuzdenkucuksayilar = sayilar.filter(besyuzdenkucukmu)
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a-b)
 
 // 3f çözümü
 
-/* kodlar buraya */
+tekraredensayilar = [];
+const depo = {};
+ 
+for (let sayi of sayilar) {
+  if (depo[sayi] === undefined) {
+    depo[sayi] = 1;
+  } else {
+    depo[sayi]++;
+  }
+}
+for (let sayi in depo) {
+  if (depo[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${depo[sayi]} kez tekrar edilmiştir`); 
+  }
+}
+
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
