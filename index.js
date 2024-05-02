@@ -155,14 +155,15 @@ for (let sayi of sayilar) {
     depo[sayi]++;
   }
 }
-for (let sayi in depo) {
-  if (depo[sayi] > 1) {
-    tekraredensayilar.push(`${sayi} sayısı ${depo[sayi]} kez tekrar edilmiştir`); 
+console.log(depo)
+for (let key in depo) {
+  if (depo[key] > 1) {
+    tekraredensayilar.push(`${key} sayısı ${depo[key]} kere tekrar edilmiştir`); 
   }
 }
 
 
-
+console.log(tekraredensayilar)
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
